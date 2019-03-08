@@ -25,3 +25,6 @@ graph-output.dot
 settings.xml
 quarkus.log
 ObjectStore/
+
+
+.DS_Store
