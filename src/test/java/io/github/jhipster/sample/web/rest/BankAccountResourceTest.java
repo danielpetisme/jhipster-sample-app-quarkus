@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,7 +47,7 @@ public class BankAccountResourceTest {
 
   @Test
   public void createBankAccount() {
-    int databaseSizeBeforeCreate = Math.toIntExact(BankAccount.count());
+    long databaseSizeBeforeCreate = BankAccount.count();
 
     // Create the BankAccount
     given()
@@ -57,11 +58,10 @@ public class BankAccountResourceTest {
       .then()
       .statusCode(201);
 
-
     // Validate the BankAccount in the database
     List<BankAccount> bankAccountList = BankAccount.listAll();
-    assertThat(bankAccountList).hasSize((databaseSizeBeforeCreate + 1));
-    BankAccount testBankAccount = bankAccountList.get(bankAccountList.size() - 1);
+    assertThat(bankAccountList).hasSize((int) (databaseSizeBeforeCreate + 1));
+    BankAccount testBankAccount = bankAccountList.get((int) (bankAccountList.size() - 1L));
     assertThat(testBankAccount.name).isEqualTo(DEFAULT_NAME);
     assertThat(testBankAccount.balance).isEqualTo(DEFAULT_BALANCE);
   }
