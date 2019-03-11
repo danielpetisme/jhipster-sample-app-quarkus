@@ -41,16 +41,10 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
 
-    <!-- Swagger -->
+    <!-- OpenAPI -->
     <dependency>
-      <groupId>io.swagger.core.v3</groupId>
-      <artifactId>swagger-jaxrs2</artifactId>
-      <version>${swagger-jaxrs2.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.swagger.core.v3</groupId>
-      <artifactId>swagger-jaxrs2-servlet-initializer</artifactId>
-      <version>${swagger-jaxrs2.version}</version>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
 
     <!-- Data -->

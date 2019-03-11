@@ -39,13 +39,13 @@
     window.onload = function() {
 
       var baseUrl = function() {
-        var urlMatches = /(.*)\/swagger-ui\/index.html.*/.exec(window.location.href);
+        var urlMatches = /(.*)\/swagger-ui(\/index\.html)?.*/.exec(window.location.href);
         return urlMatches[1];
       };
 
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: baseUrl() + "/openapi.json",
+        url: baseUrl() + "/openapi",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [

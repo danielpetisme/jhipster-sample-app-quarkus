@@ -49,9 +49,9 @@ public class BankAccountResource {
   }
 
   @GET
-  public long getAllBankAccounts() {
+  public List<BankAccount> getAllBankAccounts() {
     log.debug("REST request to get all BankAccounts");
-    return BankAccount.count();
+    return BankAccount.listAll();
   }
 
   @GET
